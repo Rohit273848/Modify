@@ -1,14 +1,12 @@
-import FaceExpression from "./features/expression/components/FaceExpression";
+import { RouterProvider } from "react-router-dom";
+import {router} from './app.routes'
+import { AuthProvider } from "./features/auth/auth.context";
 
 function App() {
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>
-        Facial Expression Detector
-      </h1>
-
-      <FaceExpression />
-    </div>
+    <AuthProvider>
+   <RouterProvider router={router}/>
+   </AuthProvider>
   );
 }
 

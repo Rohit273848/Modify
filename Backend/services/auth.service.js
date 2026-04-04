@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import userModel from "../models/auth.models.js";
+import blacklistModel from "../models/token.model.js";
 
 export const registerUser = async ({ username, email, password }) => {
 
@@ -23,28 +24,27 @@ export const registerUser = async ({ username, email, password }) => {
 };
 
 export const loginUser = async (identifier, password) => {
-  // 1. Check if input is email or username
   const isEmail = identifier.includes("@");
-  // 2. Find user accordingly
+
   const user = await userModel.findOne(
     isEmail
       ? { email: identifier }
       : { username: identifier }
-  ).select("+password"); // Include password for comparison
+  ).select("+password");
 
-  if (!user){
-    return res.status(400).json({ message: "Invalid credentials" });
+  if (!user) {
+    throw new Error("Invalid credentials");
   }
 
   const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch){
-    return res.status(400).json({
-      message:"Invalid credentials"
-    })
+
+  if (!isMatch) {
+    throw new Error("Invalid credentials");
   }
 
   return user;
 };
+
 
 export const getMeService = async (id)=>{
   const user = await userModel.findById(id);
@@ -52,4 +52,15 @@ export const getMeService = async (id)=>{
     throw new Error("User not found");
   }
   return user;
+}
+
+export const logoutService = async (token)=>{
+ if(!token){
+  throw new Error("No token provided");
+ }
+
+ await blacklistModel.create({ token });
+
+ return true;
+
 }

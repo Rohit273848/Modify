@@ -1,0 +1,14 @@
+//backend
+1.song model
+2.routes
+3.upload middleware
+4.controller
+5.node-id3(import in controller)
+6.create services/storege.services.js (for imageKit integration)(use in controller)
+//frontend
+7.create get router and getSong controller
+8.create feature/home/pages and component 
+9.in pages create home.jsx and import expressioin.jsx (create 4layer of react)
+10.create song.context.js in home   
+11.wrap all app with SongContextProvider
+12. create hook/useSong.js
