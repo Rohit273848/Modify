@@ -1,5 +1,5 @@
 import React from "react";
-import FaceExpression from "../components/faceExpression";
+import FaceExpression from "../components/FaceExpression";
 
 const Detect = () => {
   return (
