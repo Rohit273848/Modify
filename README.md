@@ -110,7 +110,10 @@ Plus, it combines:
 
 ## 📸 Screenshots
 
-*Add your screenshots here in the final README file*
+<img width="1918" height="924" alt="image" src="https://github.com/user-attachments/assets/000c4cb8-8005-4096-992b-063645d89fe4" />
+<img width="850" height="916" alt="image" src="https://github.com/user-attachments/assets/a420d65f-d57d-40e4-b2f8-08b3aa755ea1" />
+<img width="1919" height="926" alt="image" src="https://github.com/user-attachments/assets/b0f93600-6c78-42a8-8c90-c59da6f1bfe3" />
+
 
 ---
 
